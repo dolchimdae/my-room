@@ -41,7 +41,7 @@ export default async function PostPage({ params }) {
       <div className="prose prose-lg max-w-none">
         <ReactMarkdown
           components={{
-            code({ node, inline, className, children, ...props }) {
+            code({ inline, className, children, ...props }) { // 코드 블록 렌더링
               const match = /language-(\w+)/.exec(className || '');
               return !inline && match ? (
                 <SyntaxHighlighter
