@@ -11,13 +11,13 @@ export default async function PostPage({ params }) {
   const tags = page.properties.태그.multi_select || [];
   const publishDate = page.properties.발행일.date?.start || page.created_time;
   return (
-    <article className="max-w-4xl mx-auto">
+    <article className="max-w-5xl mx-auto py-12">
       <header className="mb-8">
         <div className="flex items-center gap-2 mb-4">
-          <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded">
+          <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded">
             {category}
           </span>
-          <span className="text-gray-500">
+          <span className="text-gray-900">
             {new Date(publishDate).toLocaleDateString('ko-KR')}
           </span>
         </div>
@@ -29,7 +29,7 @@ export default async function PostPage({ params }) {
             {tags.map((tag) => (
               <span
                 key={tag.id}
-                className="px-2 py-1 bg-gray-100 text-gray-700 text-sm rounded"
+                className="px-2 py-1 bg-purple-200 text-gray-700 text-sm rounded"
               >
                 #{tag.name}
               </span>
@@ -38,7 +38,7 @@ export default async function PostPage({ params }) {
         )}
       </header>
 
-      <div className="prose prose-lg max-w-none">
+      <div className="prose prose-lg max-w-none text-gray-900">
         <ReactMarkdown
           components={{
             code({ inline, className, children, ...props }) { // 코드 블록 렌더링
