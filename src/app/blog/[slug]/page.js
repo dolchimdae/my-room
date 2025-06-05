@@ -6,10 +6,10 @@ import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 export default async function PostPage({ params }) {
   const { slug } = await params;
   const { page, content } = await getPost(slug);
-  const title = page.properties.제목.title[0]?.plain_text || '제목 없음';
-  const category = page.properties.카테고리.select?.name || '';
-  const tags = page.properties.태그.multi_select || [];
-  const publishDate = page.properties.발행일.date?.start || page.created_time;
+  const title = page.title;
+  const category = page.category;
+  const tags = page.tags;
+  const publishDate = page.publishDate;
   return (
     <article className="max-w-5xl mx-auto py-12">
       <header className="mb-8">
@@ -29,7 +29,8 @@ export default async function PostPage({ params }) {
             {tags.map((tag) => (
               <span
                 key={tag.id}
-                className="px-2 py-1 bg-purple-200 text-gray-700 text-sm rounded"
+                className="px-2 py-1 text-gray-700 text-sm rounded"
+                style={{ backgroundColor: tag.color }}
               >
                 #{tag.name}
               </span>

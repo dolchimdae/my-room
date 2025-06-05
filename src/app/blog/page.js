@@ -1,5 +1,7 @@
 import { getPosts } from '@/lib/notion';
 import BlogCard from '@/components/BlogCard';
+// 실시간 반영
+export const dynamic = 'force-dynamic';
 
 export default async function BlogPage() {
   const posts = await getPosts();

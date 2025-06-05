@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { getPosts } from "@/lib/notion";
 import BlogCard from "@/components/BlogCard";
+// 실시간 반영
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const allPosts = await getPosts();
   const recentPosts = allPosts.slice(0, 6); // 최근 6개 글만 표시
