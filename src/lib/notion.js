@@ -5,7 +5,12 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-const n2m = new NotionToMarkdown({ notionClient: notion });
+const n2m = new NotionToMarkdown({
+  notionClient: notion, config: {
+    parseChildPages: false, // 자식 페이지 파싱 비활성화 (성능 향상)
+    convertImage: true, // 이미지 변환 활성화
+  }
+});
 
 export async function getPosts() {
   const response = await notion.databases.query({
@@ -37,6 +42,8 @@ export const notionColors = {
   pink: 'rgba(255, 192, 203, 0.4)',
   red: 'rgba(255, 0, 0, 0.4)',
 };
+
+
 
 export async function getPost(pageId) {
   try {

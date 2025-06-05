@@ -37,3 +37,31 @@ body {
   color: var(--foreground);
   font-family: "Pretendard", sans-serif;
 }
+/* 브라우저 기본 스타일 초기화 */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  all: unset;
+  display: block;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.75rem 0;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+}
